@@ -1,0 +1,25 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+
+{% block content %}
+    home
+
+<br />
+<img src="{% static 'portfolio/images/holidays.PNG' %}" />
+
+{% for project in projects %}
+
+<div>
+    <h1>
+        {{ project.title }}
+    </h1>
+    <img src="{% get_media_prefix %}{{project.image}}"/>
+    <p>{{project.description}}</p>
+    {% if project.url %}
+    <a href="{{project.url}}" target="_blank" >go</a>
+    {% endif %}
+    </div>
+
+{% endfor %}
+
+{% endblock %}

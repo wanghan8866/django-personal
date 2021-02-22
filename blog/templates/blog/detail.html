@@ -1,0 +1,14 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+
+{% block content %}
+<h1>{{id}}</h1>
+<h3>{{ha_id}}</h3>
+<div>
+    <h2>{{blog.title}}</h2>
+    <p>{{blog.date}}</p>
+    <p>{{blog.description|safe}}</p>
+
+</div>
+<a href="{% url 'blog:all_blogs' %}">back</a>
+{% endblock %}

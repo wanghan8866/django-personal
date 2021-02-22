@@ -1,0 +1,19 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+{% block content %}
+<h1>blog</h1>
+<h1>luke writes {{blogs.count }} blog{{blogs.count|pluralize}}</h1>
+{% for blog in blogs %}
+
+<div>
+    <h2>{{blog.title|upper}}</h2>
+    <p>{{blog.date|date:'l, d/m/Y'}}</p>
+    <p>{{blog.description|striptags|truncatechars:10}}</p>
+    <p><a href="{% url 'blog:detail' blog.id %}">click</a></p>
+
+</div>
+
+{% endfor %}
+<img src="{% static 'blog/images/workshop2A2.PNG' %}" />
+<a href="{% url 'home' %}">home</a>
+{% endblock %}
